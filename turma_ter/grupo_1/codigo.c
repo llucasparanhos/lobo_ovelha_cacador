@@ -284,18 +284,18 @@ void imprimir_tabuleiro() {
     for (int i = 0; i < tabuleiro.linhas; i++) {
         for (int j = 0; j < tabuleiro.colunas; j++) {
             switch (tabuleiro.celulas[i][j]) {
-                case VAZIO:   printf("  "); break;
-                case OVELHA:  printf("🐑"); break;
-                case LOBO:    printf("🐺"); break;
-                case CACADOR: printf("🏹"); break;
-                case ARVORE:  printf("🌳"); break;
-                case PEDRA:   printf("🪨"); break;
-                default:      printf("  "); break;
+                case VAZIO:   printf(". "); break;
+                case OVELHA:  printf("O "); break;
+                case LOBO:    printf("L "); break;
+                case CACADOR: printf("C "); break;
+                case ARVORE:  printf("A "); break;
+                case PEDRA:   printf("P "); break;
+                default:      printf("? "); break;
             }
         }
         printf("\n");
     }
-    printf("\n🐑 Ovelhas: %d | 🐺 Lobos: %d | 🏹 Cacadores: %d\n",
+    printf("Ovelhas: %d | Lobos: %d | Cacadores: %d\n",
         contar_vivos(OVELHA), contar_vivos(LOBO), contar_vivos(CACADOR));
 }
 
