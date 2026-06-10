@@ -19,6 +19,14 @@
 #include <time.h>
 #include <string.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#define dormir(ms) Sleep(ms)
+#else
+#include <unistd.h>
+#define dormir(ms) usleep((ms) * 1000)
+#endif
+
 /* ========== CONSTANTES ========== */
 #define VAZIO     0
 #define OVELHA    1
@@ -392,9 +400,8 @@ int main() {
 
         rodada++;
 
-        /* pausa opcional a cada rodada */
-        printf("Pressione ENTER para continuar...");
-        getchar(); getchar();
+        /* aguarda 5 segundos antes da próxima rodada */
+        dormir(5000);
     }
 
     if (rodada > max_rodadas) {
